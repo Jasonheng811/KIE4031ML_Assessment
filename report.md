@@ -1,7 +1,14 @@
 # Stock Price Prediction with Recurrent Neural Networks
 
-**KIE4031 — Final Summative Assessment**
+**KIE4031 — Final Summative Assessment, Machine Learning**
 **Universiti Malaya · Semester II, 2025/2026**
+
+| | |
+|---|---|
+| **Submitted by** | Heng Zi Xuan |
+| **Student ID** | 22004709 |
+| **Email** | 22004709@siswa.um.edu.my |
+| **Source code** | <https://github.com/Jasonheng811/KIE4031ML_Assessment> |
 
 ---
 

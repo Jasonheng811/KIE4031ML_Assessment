@@ -26,7 +26,15 @@ md(
     """
     # KIE4031 — Stock Price Prediction with RNN
 
-    **Final Summative Assessment, Universiti Malaya, Semester II 2025/2026**
+    **Final Summative Assessment, Machine Learning**
+    **Universiti Malaya · Semester II 2025/2026**
+
+    | | |
+    |---|---|
+    | **Submitted by** | Heng Zi Xuan |
+    | **Student ID** | 22004709 |
+    | **Email** | 22004709@siswa.um.edu.my |
+    | **Source code** | <https://github.com/Jasonheng811/KIE4031ML_Assessment> |
 
     This notebook predicts daily closing prices of **Apple Inc. (AAPL)** using a
     Long Short-Term Memory (LSTM) recurrent neural network and critically compares
