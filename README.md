@@ -18,14 +18,19 @@ The assessment is structured around four rubric questions worth **30 marks**:
 ## Repository contents
 
 ```
-KIE4031_Assessment/
+KIE4031ML_Assessment/
 ├── README.md             # This file
 ├── requirements.txt      # Python dependencies
 ├── notebook.ipynb        # Main deliverable — all code, plots, inline narrative
-├── report.md             # Standalone written report
+├── notebook.html         # Rendered notebook (all outputs/plots inline)
+├── build_notebook.py     # Regenerates notebook.ipynb from source
 ├── data/AAPL.csv         # Cached dataset (downloaded by notebook on first run)
-└── figures/              # Exported plots used by report.md
+└── figures/              # Exported plots + metric CSVs
 ```
+
+> The written report is submitted separately as a PDF and is **not** tracked
+> in this repository. This repo holds the source code, the executable
+> notebook, the dataset, and the figures.
 
 ## How to run
 
@@ -45,28 +50,23 @@ sweep + multi-seed robustness + log-returns experiment + classical
 baselines, and saves all figures to `figures/`. Full execution takes
 ~8–12 minutes on CPU.
 
-## Producing PDFs for submission
+## Viewing the rendered notebook
 
-`report.html` and `notebook.html` are already rendered. To produce PDFs:
+`notebook.html` is a fully rendered view of the notebook with all plots and
+outputs inline — open it in any browser, no Jupyter required. To produce a
+PDF, press **Ctrl+P** -> destination **"Save as PDF"** -> Save. This is the
+most reliable cross-platform way to produce a print-quality PDF without
+`pandoc`, LaTeX or other heavy toolchains.
 
-1. Open `report.html` (or `notebook.html`) in any browser.
-2. Press **Ctrl+P** -> destination **"Save as PDF"** -> Save.
-
-This is the most reliable cross-platform way to produce print-quality PDFs
-without needing `pandoc`, LaTeX or other heavy toolchains.
-
-## Regenerating the HTML files
+## Regenerating the notebook
 
 ```powershell
-# Rebuild HTML view of the report
-python build_html.py
-
-# Rebuild HTML view of the notebook (includes all plots/outputs)
-jupyter nbconvert --to html notebook.ipynb
-
-# Optional: rebuild notebook.ipynb itself from build_notebook.py and re-execute
+# Rebuild notebook.ipynb from build_notebook.py and re-execute
 python build_notebook.py
 jupyter nbconvert --to notebook --execute notebook.ipynb --inplace
+
+# Rebuild the HTML view of the notebook (includes all plots/outputs)
+jupyter nbconvert --to html notebook.ipynb
 ```
 
 ## Stack
