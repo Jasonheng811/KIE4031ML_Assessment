@@ -20,6 +20,10 @@ Thumbs.db
 # Large lecture materials (course-copyrighted, do not redistribute)
 Materials/
 
+# Report renders — kept local, not published to the repo
+report.md
+report.html
+
 # We DO commit:
 # - notebook.ipynb (with outputs) — the main deliverable
 # - data/AAPL.csv — for reproducibility (~234 KB, well within GitHub limits)
