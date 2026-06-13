@@ -24,6 +24,9 @@ Materials/
 report.md
 report.html
 
+# Superseded build script — kept local, not published
+build_html.py
+
 # We DO commit:
 # - notebook.ipynb (with outputs) — the main deliverable
 # - data/AAPL.csv — for reproducibility (~234 KB, well within GitHub limits)

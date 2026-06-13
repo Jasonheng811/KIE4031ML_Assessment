@@ -161,7 +161,8 @@ md(
     ### 1.3 Data cleaning
 
     `yfinance` data is generally clean, but we still explicitly check for
-    missing values and forward-fill any gaps (e.g., market holidays).
+    missing values and forward-fill any missing values within the returned
+    trading-day rows.
     """
 )
 
@@ -417,6 +418,7 @@ code(
         epochs=50,
         batch_size=32,
         callbacks=[early_stop],
+        shuffle=False,
         verbose=2,
     )
     lstm_train_time = time.time() - t0
@@ -575,6 +577,7 @@ code(
         epochs=50,
         batch_size=32,
         callbacks=[early_stop_gru],
+        shuffle=False,
         verbose=2,
     )
     gru_train_time = time.time() - t0
@@ -646,6 +649,7 @@ code(
         model.compile(optimizer="adam", loss="mean_squared_error")
         es = EarlyStopping(monitor="val_loss", patience=patience, restore_best_weights=True)
         model.fit(X_tr, y_tr, validation_split=0.1, epochs=epochs, batch_size=32,
+                  shuffle=False,
                   callbacks=[es], verbose=0)
         return model.predict(X_te, verbose=0).ravel()
 
@@ -711,6 +715,7 @@ code(
             es = EarlyStopping(monitor="val_loss", patience=5, restore_best_weights=True)
             t0 = time.time()
             model.fit(X_train, y_train, validation_split=0.1, epochs=25,
+                      shuffle=False,
                       batch_size=32, callbacks=[es], verbose=0)
             train_t = time.time() - t0
             pred = scaler.inverse_transform(model.predict(X_test, verbose=0)).ravel()
@@ -815,7 +820,7 @@ code(
     lr_model = build_lstm((LOOKBACK, 1))
     es_lr = EarlyStopping(monitor="val_loss", patience=8, restore_best_weights=True)
     lr_model.fit(X_tr_lr, y_tr_lr, validation_split=0.1, epochs=30,
-                 batch_size=32, callbacks=[es_lr], verbose=0)
+                 batch_size=32, callbacks=[es_lr], shuffle=False, verbose=0)
     print("Log-returns LSTM trained.")
 
     # Predicted normalised returns -> un-normalise -> proper 1-step-ahead
